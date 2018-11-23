@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="content">
+    <p id="today">
+
+    </p>
+    <p id="time"></p>
+</div>
+<script>
+
+    function todayAndTime() {
+        var date = new Date;
+        var days = [
+            'Понедельник',
+            'Вторник',
+            'Среда',
+            'Четверг',
+            'Пятница',
+            'Суббота',
+            'Воскресенье',
+        ]
+        var pToday = document.getElementById('today');
+        var pTime = document.getElementById('time');
+        var today = date.getDay();
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var seconds = date.getSeconds();
+        pToday.innerHTML="Cегодня: " + days[today - 1];
+        if(hours < 10) {
+            pTime.innerHTML = "Время:" + '0' + hours + ':' + minutes + ':' + seconds;
+        }
+        else if(minutes < 10){
+            pTime.innerHTML = "Время:" + hours + ':' + '0' + minutes + ':' + seconds;
+        }
+    }
+    setInterval(todayAndTime, 1000);
+
+</script>
+
+</body>
+</html>
