@@ -30,13 +30,18 @@
         var hours = date.getHours();
         var minutes = date.getMinutes();
         var seconds = date.getSeconds();
+        if(hours < 10){
+            hours = '0' + hours;
+        }
+        if (minutes < 10){
+            minutes = '0' + minutes;
+        }
+        if(seconds < 10){
+            seconds = '0' + seconds;
+        }
         pToday.innerHTML="Cегодня: " + days[today - 1];
-        if(hours < 10) {
-            pTime.innerHTML = "Время:" + '0' + hours + ':' + minutes + ':' + seconds;
-        }
-        else if(minutes < 10){
-            pTime.innerHTML = "Время:" + hours + ':' + '0' + minutes + ':' + seconds;
-        }
+        pTime.innerHTML = "Время:" +   hours + ':' + minutes + ':' + seconds;
+
     }
     setInterval(todayAndTime, 1000);
 
